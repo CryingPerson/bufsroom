@@ -1,0 +1,243 @@
+<html>
+<head>
+    <link href="./style3.css" rel="stylesheet">
+    <title>강의실 사용신청</title>
+</head>
+
+<body>
+<div class="main">
+    <div class="calssroom-table">
+      <div>
+        <h1 class="th1">강의실 예약</h1>
+        <p class="sub-t1">원하는 강의실을 선택하고 예약하세요.</p>
+        <form class="space-y-4">
+          <div class = "d-table">
+            <label for="date" class="th2">
+              날짜
+            </label><br>
+            <input
+            type="date"
+            class="date"
+            required
+            aria-required="true"
+            value={startDateValue}
+            className={styles.selectDay}
+            onChange={StartDateValueHandler}
+          ></input>
+          </div>
+          <section class ="time">
+            <div>
+                <label for="time">
+                시작 시간
+                </label><br>
+                <select class = "t-t" name="s-time" id="st">
+                <option value="시간 선택">시간 선택</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                </select>
+            </div>
+            <div >
+            <label for="time">
+                종료 시간
+            </label><br>
+            <select name="s-time" class = "t-t" id="et">
+                    <option value="시간 선택">시간 선택</option>
+                <option value="10:00">10:00 - 11:00</option>
+                <option value="11:00">11:00 - 12:00</option>
+                <option value="13:00">13:00 - 14:00</option>
+                <option value="14:00">14:00 - 15:00</option>
+                <option value="15:00">15:00 - 16:00</option>
+                </select>
+        </div>
+    </section>
+    <div>
+        <label for="time">
+        강의실
+        </label><br>
+        <select class = "t-t" name="s-time" id="st">
+        <option value="시간 선택">강의실 선택</option>
+        <option value="09:00">412</option>
+        <option value="10:00">413</option>
+        <option value="11:00">414</option>
+        </select>
+    </div>
+          <div>
+            <label for="purpose" class="text1">
+              목적
+            </label><br>
+            <input type="text"
+              id="purpose"
+              placeholder="강의, 세미나, 회의 등"
+            />
+          </div>
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
+            type="submit"
+          >
+            예약하기
+          </button>
+        </form>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold mb-4">사용 가능한 강의실</h2>
+        <div class="calssroom-table">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">A101</h3>
+              <p class="text-sm text-muted-foreground">수용 인원 30명</p>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center space-x-2 mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path d="M5 7 3 5"></path>
+                  <path d="M9 6V3"></path>
+                  <path d="m13 7 2-2"></path>
+                  <circle cx="9" cy="13" r="3"></circle>
+                  <path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
+                  <path d="M16 16h2"></path>
+                </svg>
+                <span>프로젝터</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path d="M12 20h.01"></path>
+                  <path d="M2 8.82a15 15 0 0 1 20 0"></path>
+                  <path d="M5 12.859a10 10 0 0 1 14 0"></path>
+                  <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
+                </svg>
+                <span>Wi-Fi</span>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">A102</h3>
+              <p class="text-sm text-muted-foreground">수용 인원 40명</p>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center space-x-2 mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path d="M5 7 3 5"></path>
+                  <path d="M9 6V3"></path>
+                  <path d="m13 7 2-2"></path>
+                  <circle cx="9" cy="13" r="3"></circle>
+                  <path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
+                  <path d="M16 16h2"></path>
+                </svg>
+                <span>프로젝터</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path d="M12 20h.01"></path>
+                  <path d="M2 8.82a15 15 0 0 1 20 0"></path>
+                  <path d="M5 12.859a10 10 0 0 1 14 0"></path>
+                  <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
+                </svg>
+                <span>Wi-Fi</span>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">A103</h3>
+              <p class="text-sm text-muted-foreground">수용 인원 50명</p>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center space-x-2 mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path d="M5 7 3 5"></path>
+                  <path d="M9 6V3"></path>
+                  <path d="m13 7 2-2"></path>
+                  <circle cx="9" cy="13" r="3"></circle>
+                  <path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
+                  <path d="M16 16h2"></path>
+                </svg>
+                <span>프로젝터</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path d="M12 20h.01"></path>
+                  <path d="M2 8.82a15 15 0 0 1 20 0"></path>
+                  <path d="M5 12.859a10 10 0 0 1 14 0"></path>
+                  <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
+                </svg>
+                <span>Wi-Fi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

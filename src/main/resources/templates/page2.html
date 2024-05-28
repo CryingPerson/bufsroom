@@ -1,0 +1,99 @@
+<html>
+<head>
+    <link th:href="@{/css/style2.css}" rel="stylesheet"/>
+    <title>강의실 사용신청</title>
+</head>
+
+<body>
+<form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
+  <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+<div class="box_table">
+    <div class="text-center">
+      <h1 class="taxt">회원가입</h1>
+      <p>회원가입을 위하여 대표자 학번과 이름,비밀번호를 입력해주세요</p>
+    </div>
+    <div class="space-y-4">
+      <div class="space-y-2">
+        <label
+          class= "name"
+          for="name"
+        >
+          이름
+        </label><br>
+        <input
+          class="taxtbox"
+          id="username"
+          placeholder="Enter your full name"
+          th:field="*{username}"
+          required=""
+        />
+        
+      </div>
+      <div class="space-y-2">
+        <label
+          class="classnum"
+          for="classnum"
+        >
+          학번
+        </label><br>
+        <input
+          class="taxtbox"
+          id="userid"
+          placeholder="20xxxxx"
+          required=""
+          th:field="*{userid}"
+          type="text"
+        />
+      </div> 
+      <div class="space-y-2">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="confirm-password"
+        >
+          비밀번호
+        </label><br>
+        <input
+          class="taxtbox"
+          id="password1"
+          required=""
+          type="password"
+          th:field="*{password1}"
+          placeholder="password."
+        /><br>
+        <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="confirm-password"
+        >
+          비밀번호확인
+        </label><br>
+        <input
+                class="taxtbox"
+                id="password2"
+                required=""
+                type="password"
+                th:field="*{password2}"
+                placeholder="password."
+        />
+        
+      </div>
+      <div>
+        <div class="check_wrap">
+            <input type="checkbox" id="check_btn"/>
+            <label for="check_btn"><span>개인정보 이용을 동의합니다.</span></label>
+          </div>
+      </div>
+      <a href="/user/login">
+      <button
+        class="burr"
+        type="submit"
+      >
+        가입하기
+    
+      </button>
+    </a>
+    </div>
+</div>
+</form>
+</body>
+
+  </html>
