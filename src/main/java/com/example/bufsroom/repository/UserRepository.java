@@ -1,10 +1,10 @@
 package com.example.bufsroom.repository;
 
+import java.util.Optional;
+
 import com.example.bufsroom.user.SiteUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-
 public interface UserRepository extends JpaRepository<SiteUser, Long> {
-	Optional<SiteUser> findByUserid(String userid);
+	Optional<SiteUser> findByUsername(String username);
 }

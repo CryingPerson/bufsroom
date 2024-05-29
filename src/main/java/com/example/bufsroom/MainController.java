@@ -10,12 +10,11 @@ public class MainController {
 	@GetMapping("/sbb")
 	@ResponseBody
 	public String index() {
-		return "로그인을 하세요.";
+		return "안녕하세요 sbb에 오신것을 환영합니다.";
 	}
 
 	@GetMapping("/")
 	public String root() {
-		return "redirect:/user/login";
+		return "redirect:/app/form";
 	}
-
 }

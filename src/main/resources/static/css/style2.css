@@ -1,22 +1,61 @@
+@font-face {
+    font-family: 'KCC-Hanbit'; 
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+*{
+    font-family: 'KCC-Hanbit';
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    width: 100%; height: 6rem;
+    background-color: #606367;
+  
+    
+  }
+  .menu-b{
+    background-color: #606367;
+    width: 10rem; height: 100%;
+  
+    border: none;
+    font-size: 1.4rem;
+  }
+  .menu-b:hover{
+    background-color: beige;
+  }
+  .menu-b1{
+    background-color: #606367;
+    width: 10rem; height: 100%;
+    border: none;
+    font-size: 1.4rem;
+  }
+  .menu-b1:hover{
+    background-color: beige;
+  }
 body{
     background-color: #606367;
-    justify-content: center;
+
 }
 .box_table{
     margin: 0 auto;
     width: 30rem; height: 40rem;
     background-color: #ffffff;
     border: none; border-radius: 15px;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    
 }
 .text-center{
     text-align: center;
-    margin-top: 7rem;
-    padding-top: 1rem;
+
 
 }
 h1{
     margin-bottom: 0px;
-    margin-top: 20px;
+    
 }
 p{
     margin-top: 0px;
@@ -50,6 +89,7 @@ p{
     justify-content: center;
     font-size: 1.6rem;
     padding-top: 0.3rem;
+    margin-bottom: 1rem;
 
 }
 input#check_btn{
@@ -139,3 +179,5 @@ input#check_btn:checked + label:before{
     transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
     transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
   }
+
+    

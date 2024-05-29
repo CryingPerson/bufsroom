@@ -1,243 +1,139 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <link href="./style3.css" rel="stylesheet">
+    <link th:href="@{/css/style3.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/ok_1.js}"></script>
     <title>강의실 사용신청</title>
 </head>
 
 <body>
+<div class="menu">
+    <div class="menu-s">
+        <a href="http://127.0.0.1:5500/page3.html">
+            <button class="menu-b" type="button">HOME</button>
+        </a>
+    </div>
+
+        <div class="menu-s">
+            <a href="http://127.0.0.1:5500/page4.html">
+            <button class="menu-b" type="button">조회</button>
+        </a>
+    </div>
+
+    <div class="menu-s">
+        <button class="menu-b1" type="button">강의실<br>
+            위치정보</button>
+    </div>
+    <div class = 'menu-s'>
+        <button class = 'menu-b1' type="submit">
+            관리자
+        </button>
+    </div>
+</div>
+
 <div class="main">
-    <div class="calssroom-table">
-      <div>
+    <div class="item">
         <h1 class="th1">강의실 예약</h1>
         <p class="sub-t1">원하는 강의실을 선택하고 예약하세요.</p>
-        <form class="space-y-4">
-          <div class = "d-table">
-            <label for="date" class="th2">
-              날짜
-            </label><br>
-            <input
-            type="date"
-            class="date"
-            required
-            aria-required="true"
-            value={startDateValue}
-            className={styles.selectDay}
-            onChange={StartDateValueHandler}
-          ></input>
-          </div>
-          <section class ="time">
+        <form class="space-y-2" th:action="@{/app/form}" th:object="${appCreateForm}" method="post">
+            <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+            <div class="space-y-8">
+                <div class="d-table">
+                    <label for="date">날짜</label><br>
+                    <input type="date" class="date" required th:field="*{startDate}"></input>
+                </div>
+                <section class="time">
+                    <div>
+                        <label for="time">시작 시간</label><br>
+                        <select  class="t-t" name="startTime" id="st" >
+                            <option value="'시간 선택'">시간 선택</option>
+                            <<option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="time">종료 시간</label><br>
+                        <select class="t-t" name="endTime" id="et" >
+                            <option value="'시간 선택'">시간 선택</option>
+                            <option value="'10:00'" >10:00</option>
+                            <option value="'11:00'" >11:00</option>
+                            <option value="'13:00'" >13:00</option>
+                            <option value="'14:00'" >14:00</option>
+                            <option value="'15:00'" >15:00</option>
+                            <option value="'16:00'" >16:00</option>
+                            <option value="'17:00'" >17:00</option>
+                            <option value="'18:00'" >18:00</option>
+                        </select>
+                    </div>
+                </section>
+            </div>
+            <label for="time">강의실</label><br>
+            <div class="inoutr">
+                <select class="t-t" name="school" id="select1" onchange="itemChange()">
+                    <option value="">동 선택</option>
+                    <option th:value="'A동'" th:selected="${school == 'A동'}">A동</option>
+                    <option th:value="'D동 1층'" th:selected="${school == 'D동 1층'}">D동 1층</option>
+                    <option th:value="'D동 2층'" th:selected="${school == 'D동 2층'}">D동 2층</option>
+                    <option th:value="'D동 3층'" th:selected="${school == 'D동 3층'}">D동 3층</option>
+                    <option th:value="'D동 4층'" th:selected="${school == 'D동 4층'}">D동 4층</option>
+                    <option th:value="'I동'" th:selected="${school == 'I동'}">I동</option>
+                    <option th:value="'G동'" th:selected="${school == 'G동'}">G동</option>
+                </select>
+                <select class="t-t" name="classroom" id="select2">
+                    <option value="">강의실 선택</option>
+                </select>
+            </div>
             <div>
-                <label for="time">
-                시작 시간
-                </label><br>
-                <select class = "t-t" name="s-time" id="st">
-                <option value="시간 선택">시간 선택</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                </select>
+                <label for="purpose">목적</label><br>
+                <input type="text" id="purpose" placeholder="강의, 세미나, 회의 등" th:field="*{purpose}" />
             </div>
-            <div >
-            <label for="time">
-                종료 시간
-            </label><br>
-            <select name="s-time" class = "t-t" id="et">
-                    <option value="시간 선택">시간 선택</option>
-                <option value="10:00">10:00 - 11:00</option>
-                <option value="11:00">11:00 - 12:00</option>
-                <option value="13:00">13:00 - 14:00</option>
-                <option value="14:00">14:00 - 15:00</option>
-                <option value="15:00">15:00 - 16:00</option>
-                </select>
-        </div>
-    </section>
-    <div>
-        <label for="time">
-        강의실
-        </label><br>
-        <select class = "t-t" name="s-time" id="st">
-        <option value="시간 선택">강의실 선택</option>
-        <option value="09:00">412</option>
-        <option value="10:00">413</option>
-        <option value="11:00">414</option>
-        </select>
-    </div>
-          <div>
-            <label for="purpose" class="text1">
-              목적
-            </label><br>
-            <input type="text"
-              id="purpose"
-              placeholder="강의, 세미나, 회의 등"
-            />
-          </div>
-          <button
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
-            type="submit"
-          >
-            예약하기
-          </button>
+            <button type="submit" class="button1">예약하기</button>
         </form>
-      </div>
-      <div>
-        <h2 class="text-2xl font-bold mb-4">사용 가능한 강의실</h2>
-        <div class="calssroom-table">
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-6">
-              <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">A101</h3>
-              <p class="text-sm text-muted-foreground">수용 인원 30명</p>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center space-x-2 mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5 text-gray-400"
-                >
-                  <path d="M5 7 3 5"></path>
-                  <path d="M9 6V3"></path>
-                  <path d="m13 7 2-2"></path>
-                  <circle cx="9" cy="13" r="3"></circle>
-                  <path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
-                  <path d="M16 16h2"></path>
-                </svg>
-                <span>프로젝터</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5 text-gray-400"
-                >
-                  <path d="M12 20h.01"></path>
-                  <path d="M2 8.82a15 15 0 0 1 20 0"></path>
-                  <path d="M5 12.859a10 10 0 0 1 14 0"></path>
-                  <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
-                </svg>
-                <span>Wi-Fi</span>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-6">
-              <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">A102</h3>
-              <p class="text-sm text-muted-foreground">수용 인원 40명</p>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center space-x-2 mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5 text-gray-400"
-                >
-                  <path d="M5 7 3 5"></path>
-                  <path d="M9 6V3"></path>
-                  <path d="m13 7 2-2"></path>
-                  <circle cx="9" cy="13" r="3"></circle>
-                  <path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
-                  <path d="M16 16h2"></path>
-                </svg>
-                <span>프로젝터</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5 text-gray-400"
-                >
-                  <path d="M12 20h.01"></path>
-                  <path d="M2 8.82a15 15 0 0 1 20 0"></path>
-                  <path d="M5 12.859a10 10 0 0 1 14 0"></path>
-                  <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
-                </svg>
-                <span>Wi-Fi</span>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-6">
-              <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">A103</h3>
-              <p class="text-sm text-muted-foreground">수용 인원 50명</p>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center space-x-2 mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5 text-gray-400"
-                >
-                  <path d="M5 7 3 5"></path>
-                  <path d="M9 6V3"></path>
-                  <path d="m13 7 2-2"></path>
-                  <circle cx="9" cy="13" r="3"></circle>
-                  <path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
-                  <path d="M16 16h2"></path>
-                </svg>
-                <span>프로젝터</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5 text-gray-400"
-                >
-                  <path d="M12 20h.01"></path>
-                  <path d="M2 8.82a15 15 0 0 1 20 0"></path>
-                  <path d="M5 12.859a10 10 0 0 1 14 0"></path>
-                  <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
-                </svg>
-                <span>Wi-Fi</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+    <div class="item">
+        <h2>특징 별 강의실 목록</h2>
+        <div class="c-table">
+            <div class="room">
+                <h3 class="ch">좌석없는 홀</h3>
+                <p class="subsubt">전시회, 박람회 등 준비가 많이 필요한 행사를 진행하시는 분들께 추천드립니다.</p>
+                <p class="subsubt">G동 (만오기념홀) D동 (트리니티오디토리움)</p>
+            </div>
+            <div class="room">
+                <h3 class="ch">대형 강의실</h3>
+                <p class="subsubt">기본 70석 이상인 강의실</p>
+                <p class="subsubt">많은 수강생을 들여야하시는 분들에게 추천드립니다.</p>
+                <p class="subsubt">D동(208,216,310,316,317,319,320,407 등)</p>
+                <p class="subsubt">A동 모든 강의실 I동(209,210,219)</p>
+            </div>
+            <div class="room">
+                <h3 class="ch">초대형 강의실</h3>
+                <p class="subsubt">기본 100석이 넘는 강의실</p>
+                <p class="subsubt">더욱 더 많은 인원을 수용하실 분들에게 추천드립니다.</p>
+                <p class="subsubt">D동 (104,105,108,117,118,411)</p>
+            </div>
+            <div class="room">
+                <h3 class="ch">PC 실습실</h3>
+                <p class="subsubt">개인별 PC가 필요하신 분들에게 추천드립니다.</p>
+                <p class="subsubt">D동 (101,201,211,402,413)</p>
+            </div>
+            <div class="room">
+                <h3 class="ch">하이플렉스 강의실</h3>
+                <p class="subsubt">-------------------</p>
+                <p class="subsubt">D동 (대형실(109,120),218,219,314,414) I동(314)</p>
+            </div>
+            <div class="room">
+                <h3 class="ch">기본 강의실</h3>
+                <p class="subsubt">소규모 모임, 회의 등 많은 좌석이 필요하지 않은 분들에게 추천드립니다.</p>
+                <p class="subsubt">D동 (219,330,328,324 등)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

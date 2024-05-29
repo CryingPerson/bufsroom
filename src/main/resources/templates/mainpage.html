@@ -12,7 +12,7 @@
       <p>대표자 학번과 비밀번호를 입력해주세요</p>
     </div>
     <form th:action="@{/user/login}" method="post">
-      <div th:if="${param.error}">
+      <div>
           <div class="alert alert-danger">
           </div>
       </div>
@@ -27,7 +27,7 @@
         </label><br>
         <input
           class="taxtbox"
-          id="userid"
+          id="username"
           placeholder="20xxxxx"
           required=""
           type="text"
@@ -69,6 +69,7 @@
 
       </button>
     </a>
+
   </div>
 
   </div>

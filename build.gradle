@@ -32,8 +32,6 @@ dependencies {
 	implementation 'org.commonmark:commonmark:0.21.0'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	runtimeOnly 'com.h2database:h2'
-
-	
 }
 
 tasks.named('test') {

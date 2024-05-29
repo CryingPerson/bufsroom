@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'KCC-Hanbit'; 
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+*{
+    font-family: 'KCC-Hanbit';
+}
+
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    width: 100%; height: 6rem;
+    background-color: #606367;
+  
+    
+  }
+  .menu-b{
+    background-color: #606367;
+    width: 10rem; height: 100%;
+  
+    border: none;
+    font-size: 1.4rem;
+  }
+  .menu-b:hover{
+    background-color: beige;
+  }
+  .menu-b1{
+    background-color: #606367;
+    width: 10rem; height: 100%;
+    border: none;
+    font-size: 1.4rem;
+  }
+  .menu-b1:hover{
+    background-color: beige;
+  }
+.main{
+    width: 100%; height: 100%;
+    display: grid;
+    margin-left: 0 auto;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-left: 6rem;
+}
+
+
+
+.item{
+    margin-top: 4rem;
+}
+.space-y-8{
+    justify-content: center;
+}
+.classroom{
+    background-color:#f7fafc;
+    border-radius: 0.5rem;
+    p{
+        padding: 1rem
+
+    }
+}
+.th1{
+    font-size: 1.875rem; 
+    line-height: 2.25rem;
+    font-weight: 700px;
+    margin-bottom: 0.2rem;
+    display: inline;
+
+}
+.sub-t1{
+    color: #6B7280;
+    margin-top: 0.5rem;
+    margin-bottom: 32px;
+}
+.th2{
+    font-size: 1rem; 
+    line-height: 1.25rem;
+}
+.date{
+    width: 28rem; height: 40;
+    font-size: 1.24rem;
+    border-style: solid; border-radius: 7px;
+    
+}
+input[type='date']::before {
+    content: attr(data-placeholder);
+    width: 100%;
+  }
+  
+  input[type='date']:focus::before,
+  input[type='date']:valid::before {
+    display: none;
+  }
+.time{
+    display: flex;
+    flex-wrap: wrap;
+}
+.inoutr{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.t-t{
+    width: 12em; height: 30;
+    font-size: 1rem;
+    padding-left: 0.7rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    border-style: solid; border-radius: 7px;
+}
+.d-table{
+    margin-bottom: 0.7rem;
+
+}
+#purpose{
+    width: 28rem; height: 6rem;
+    font-size: 1.2rem;
+    border-style: solid; border-radius: 7px;
+    margin-bottom: 1.4rem;
+}
+label{
+    margin-bottom: 0.3rem;
+    display: inline-block;
+}
+.button1{
+    width: 28rem; height: 40;
+    font-size: 1.24rem;
+    border-style: solid; border-radius: 7px;
+    background-color: black;
+    color: white;
+}
+
+.c-teble{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.room{
+    display: inline-block; 
+    width: 25rem; height: 10rem;
+    border:2px #6B7280;
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 1rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    h3{
+      margin-top: 1rem;
+      margin-bottom: 0px;  
+    }
+    p{
+    margin-top: 0.2rem;
+    margin-bottom: auto;
+    }
+}
